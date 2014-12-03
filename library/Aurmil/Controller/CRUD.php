@@ -64,7 +64,7 @@ class Aurmil_Controller_CRUD extends Centurion_Controller_CRUD
         if ($this->_publishable) {
             $this->_displays['is_published'] = array(
                 'label' => $this->view->translate('Is published?'),
-                'type'  => self::COL_TYPE_ONOFF
+                'type'  => self::COL_TYPE_ONOFF,
             );
 
             $this->_filters['is_published'] = array(
@@ -74,14 +74,14 @@ class Aurmil_Controller_CRUD extends Centurion_Controller_CRUD
                 'data'      => array(
                     null    => $this->view->translate('All'),
                     0       => $this->view->translate('No'),
-                    1       => $this->view->translate('Yes')
-                )
+                    1       => $this->view->translate('Yes'),
+                ),
             );
 
             // add "publish" and "unpublish" mass actions buttons
             $this->_toolbarActions = array_merge(array(
                 'publish'   => $this->view->translate('Publish'),
-                'unpublish' => $this->view->translate('Unpublish')
+                'unpublish' => $this->view->translate('Unpublish'),
             ), $this->_toolbarActions);
         }
     }
@@ -104,7 +104,7 @@ class Aurmil_Controller_CRUD extends Centurion_Controller_CRUD
         $this->getHelper('redirector')->gotoRoute(array_merge(array(
             'controller' => $this->_request->getControllerName(),
             'module' => $this->_request->getModuleName(),
-            'action' => 'index'
+            'action' => 'index',
         ), $this->_extraParam), null, true);
     }
 
@@ -126,7 +126,7 @@ class Aurmil_Controller_CRUD extends Centurion_Controller_CRUD
         $this->getHelper('redirector')->gotoRoute(array_merge(array(
             'controller' => $this->_request->getControllerName(),
             'module' => $this->_request->getModuleName(),
-            'action' => 'index'
+            'action' => 'index',
         ), $this->_extraParam), null, true);
     }
 
@@ -150,6 +150,7 @@ class Aurmil_Controller_CRUD extends Centurion_Controller_CRUD
 
         if ($this->_useTicket && !$this->view->ticket()->isValid()) {
             $this->view->errors[] = $this->view->translate('Invalid ticket');
+
             return $this->_forward('index', null, null, array('errors' => array()));
         }
 
@@ -177,13 +178,14 @@ class Aurmil_Controller_CRUD extends Centurion_Controller_CRUD
 
         if ($this->_hasParam('_next', false)) {
             $url = urldecode($this->_getParam('_next', null));
+
             return $this->_response->setRedirect($url);
         }
 
         $this->getHelper('redirector')->gotoRoute(array_merge(array(
             'controller' => $this->_request->getControllerName(),
             'module'     => $this->_request->getModuleName(),
-            'action'         => 'index'
+            'action'         => 'index',
         ), $this->_extraParam), null, true);
     }
 }

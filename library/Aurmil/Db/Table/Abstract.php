@@ -39,7 +39,7 @@ abstract class Aurmil_Db_Table_Abstract extends Centurion_Db_Table
             $rowset = $this->fetchAll($select);
 
             // @see Centurion_Form_Model_Abstract::_buildOptions()
-            $options = (true === $nullable) ? array(null => ''):array();
+            $options = (true === $nullable) ? array(null => '') : array();
             foreach ($rowset as $related) {
                 $options[$related->id] = (string) $related;
             }
@@ -62,7 +62,7 @@ abstract class Aurmil_Db_Table_Abstract extends Centurion_Db_Table
                 ),
                 Translation_Traits_Model_DbTable::SET_NULL_FIELDS => array(
                     //Put here te columns of your table which need to be set to null (in this case the translated row uses the value of the original column but you can change the value in the admin form)
-                )
+                ),
             );
 
             if ($this->isPublishable()) {
@@ -93,7 +93,7 @@ abstract class Aurmil_Db_Table_Abstract extends Centurion_Db_Table
 
             return $this->all(array(
                 'language_id = ?' => $language->id,
-                'original_id IN (' . implode(',', $ids) . ')'
+                'original_id IN (' . implode(',', $ids) . ')',
             ));
         } else {
             throw new Exception(get_class($this) . ' does not implement translation trait');

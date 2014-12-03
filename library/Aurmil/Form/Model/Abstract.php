@@ -110,7 +110,7 @@ abstract class Aurmil_Form_Model_Abstract extends Centurion_Form_Model
 
             if (in_array('created_at', $cols) && null !== $instance->created_at) {
                 $this->addElement('info', 'created_at', array(
-                    'label' => $this->_translate('Created at')
+                    'label' => $this->_translate('Created at'),
                 ));
             }
 
@@ -118,7 +118,7 @@ abstract class Aurmil_Form_Model_Abstract extends Centurion_Form_Model
 
             if (in_array('updated_at', $cols) && null !== $instance->updated_at) {
                 $this->addElement('info', 'updated_at', array(
-                    'label' => $this->_translate('Updated at')
+                    'label' => $this->_translate('Updated at'),
                 ));
             }
 
@@ -130,7 +130,7 @@ abstract class Aurmil_Form_Model_Abstract extends Centurion_Form_Model
                 && (null !== $instance->published_at)
             ) {
                 $this->addElement('info', 'published_at', array(
-                    'label' => $this->_translate('Published at')
+                    'label' => $this->_translate('Published at'),
                 ));
             }
         }

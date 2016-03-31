@@ -167,7 +167,3 @@ Do not forget to:
 * implement "Translation_Traits_Controller_CRUD_Interface" for multilingual datas
 
 You may specify list columns and filters in "init" method.
-
-## Changelog
-### 1.0
-* Initial release
